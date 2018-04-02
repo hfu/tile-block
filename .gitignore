@@ -1,3 +1,5 @@
+*.mbtiles
+
 # Logs
 logs
 *.log

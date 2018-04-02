@@ -1,0 +1,22 @@
+{
+  "name": "tile-block",
+  "version": "1.0.0",
+  "description": "a simplest-possible mbtiles-based vector tile server",
+  "main": "tile-block.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfu/tile-block.git"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/hfu/tile-block/issues"
+  },
+  "homepage": "https://github.com/hfu/tile-block#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
