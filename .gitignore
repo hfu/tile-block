@@ -1,5 +1,11 @@
 *.mbtiles
 htdocs/italy
+private.key
+public.key
+server.csr
+server.crt
+serve.stdout
+serve.stderr
 
 # Logs
 logs
