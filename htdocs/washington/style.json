@@ -5,7 +5,8 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "tiles": ["http://localhost:3857/zxy/washington/{z}/{x}/{y}"]
+      "tiles": ["http://localhost:3857/zxy/washington/{z}/{x}/{y}"],
+      "maxzoom": 14
     }
   },
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
