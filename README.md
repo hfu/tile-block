@@ -22,7 +22,7 @@ $ open https://localhost:3857/somewhere/
 ## purpose of this code
 1. to serve vector tiles from mbtiles and to host related static files.
 2. basically for development or evaluation; number of potential users < 1000.
-3. to perform moderately; faster than serving static tiles on CIFS.
+3. to perform moderately; faster than http serving static tiles on CIFS.
 
 ## some specifications
 1. The main program is tile-block.js.
