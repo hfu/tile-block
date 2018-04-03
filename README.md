@@ -5,6 +5,10 @@ a simplest-possible mbtiles-based vector tile server
 ```sh
 $ git clone git@github.com:hfu/tile-block.git
 $ cd tile-block
+$ openssl genrsa -des3 -passout pass:tile-block -out private.key 2048
+$ openssl rsa -in private.key -pubout -out public.key -passin pass:tile-block
+$ openssl req -new -key private.key -out server.csr
+$ openssl x509 -req -days 365 -signkey private.key < server.csr > server.crt
 $ npm install
 $ mkdir mbtiles
 $ cp /somedirectory/somewhere.mbtiles mbtiles
