@@ -1,5 +1,5 @@
 # tile-block
-a simplest-possible mbtiles-based vector tile server
+a simplest-possible mbtiles-based http/2 vector tile server
 
 ## how to use
 ```sh
@@ -32,5 +32,3 @@ $ open http://localhost:3857/somewhere/
 5. Static files under htdocs directory are served under /. The intent of this is to serve index.html, style.json and other related files so that we will not face CORS issues.
 6. For everything including bugs, please refer to tile-block.js.
 
-## todo
-1. Use http2 for better performance. I might rewrite this code with koa. 
