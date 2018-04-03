@@ -19,22 +19,23 @@ fs.readdir('mbtiles', (err, files) => {
   }
 })
 
-app.get('/zxy/:t/:z/:x/:y', (req, res) => {
+app.get('/zxy/:t/:z/:x/:y', (req, res, next) => {
   [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
   const t = req.params.t
   console.log(req.params)
   if(!mbtiles[t]) {
     console.log(`${t} does not exist.`)
-    return
+    next()
   }
   mbtiles[req.params.t].getTile(z, x, y, (err, data, headers) => {
     if (err) {
       res.status(404).send(`${t}/${z}/${x}/${y} does not exist.`)
-      return
+      next()
     } else {
       console.log(headers)
       res.set('Content-Encoding', 'gzip')
       res.send(data)
+      next()
     }
   })
 })
