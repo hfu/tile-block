@@ -25,10 +25,11 @@ $ open http://localhost:3857/somewhere/
 3. to perform moderately; faster than serving static tiles on CIFS.
 
 ## some specifications
-1. the main program is tile-block.js.
-2. tile-block.js scans mbtiles files under mbtiles directory, establishng read-only connection to them.
-3. tile-block.js serves vector tiles from /zxy/{t}/{z}/{x}/{y} where {t} is the filename of the mbtiles file e.g., tiles from mbtiles/somewhere.mbtiles will be served through /zxy/somewhere/{z}/{x}/{y}. There is no extension used.
-4. Vector tiles are served gzipped with Content-Encoding: gzip, without checking Accept-Encoding.
-5. Static files under htdocs directory are served under /. The intent of this is to serve index.html, style.json and other related files so that we will not face CORS issues.
-6. For everything including bugs, please refer to tile-block.js.
+1. The main program is tile-block.js.
+2. tile-block.js talks http/2. As in 'how to use', you need to have private.key and server.crt. Otherwise you can modify tile-block.js to use plain http. See commented part of tile-block.js.
+3. tile-block.js scans mbtiles files under mbtiles directory, establishng read-only connection to them.
+4. tile-block.js serves vector tiles from /zxy/{t}/{z}/{x}/{y} where {t} is the filename of the mbtiles file e.g., tiles from mbtiles/somewhere.mbtiles will be served through /zxy/somewhere/{z}/{x}/{y}. There is no extension used.
+5. Vector tiles are served gzipped with Content-Encoding: gzip, without checking Accept-Encoding.
+6. Static files under htdocs directory are served under /. The intent of this is to serve index.html, style.json and other related files so that we will not face CORS issues.
+7. For everything including bugs, please refer to tile-block.js.
 
