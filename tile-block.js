@@ -20,7 +20,7 @@ fs.readdir('mbtiles', (err, files) => {
 })
 
 app.get('/zxy/:t/:z/:x/:y', (req, res, next) => {
-  [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
+  const [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
   const t = req.params.t
   console.log(req.params)
   getTile(t, z, x, y).then(tile => {
@@ -37,7 +37,7 @@ app.get('/zxy/:t/:z/:x/:y', (req, res, next) => {
 
 const getTile = (t, z, x, y) => {
   return new Promise((resolve, reject) => {
-    if(!mbtiles[t]) {
+    if (!mbtiles[t]) {
       console.log(`mbtiles/${t}.mbtiles does not exist.`)
       resolve(false)
     }
