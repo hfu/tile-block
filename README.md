@@ -33,3 +33,5 @@ $ open http://localhost:3857/somewhere/
 6. Static files under htdocs directory are served under /. The intent of this is to serve index.html, style.json and other related files so that we will not face CORS issues.
 7. For everything including bugs, please refer to tile-block.js.
 
+## CONTRIBUTE.md things
+forks, issues, pull requests are welcome!
