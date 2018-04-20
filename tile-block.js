@@ -2,8 +2,10 @@ const fs = require('fs')
 const MBTiles = require('@mapbox/mbtiles')
 const express = require('express')
 const spdy = require('spdy')
+const cors = require('cors')
 
 const app = express()
+app.use(cors())
 let mbtiles = {}
 
 const scanFiles = () => {
