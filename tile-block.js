@@ -40,6 +40,24 @@ app.get('/zxy/:t/:z/:x/:y', (req, res, next) => {
   })
 })
 
+app.get('/module/:z/:x/:y', (req, res, next) => {
+  const [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
+  const Z = 5
+  const X = x >> (z - Z)
+  const Y = y >> (z - Z)
+  const t = `${Z}-${X}-${Y}`
+  getTile(t, z, x, y).then(tile => {
+    if (tile) {
+      res.set('Content-Encoding', 'gzip')
+      res.send(tile)
+    } else {
+      res.status(404).send(`${t}/${z}/${x}/${y} does not exist.`)
+    }
+  }).catch(reason => {
+    throw reason
+  })
+})
+
 const getTile = (t, z, x, y) => {
   if (!mbtiles[t]) scanFiles()
   return new Promise((resolve, reject) => {
