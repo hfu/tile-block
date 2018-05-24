@@ -3,6 +3,7 @@ const MBTiles = require('@mapbox/mbtiles')
 const express = require('express')
 const spdy = require('spdy')
 const cors = require('cors')
+const config = require('config')
 
 const app = express()
 app.use(cors())
@@ -74,13 +75,11 @@ const getTile = (t, z, x, y) => {
 app.use(express.static('htdocs'))
 
 /* be sure to change style.json if you want to use http
-app.listen(3856, () => {
-  console.log('http listening port 3856')
-})
+app.listen(config.get('port'), () => {})
 */
 
 spdy.createServer({
   key: fs.readFileSync('private.key'), 
   cert: fs.readFileSync('server.crt'),
   passphrase: 'tile-block'
-}, app).listen(3857, () => { })
+}, app).listen(config.get('port'), () => { })
