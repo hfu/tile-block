@@ -16,7 +16,7 @@ $ cp -r htdocs/washington htdocs/somewhere
 $ vi htdocs/somewhere/index.html
 $ vi htdocs/somewhere/style.json
 $ node tile-block
-$ open https://localhost:3857/somewhere/
+$ open https://localhost:3776/somewhere/
 ```
 
 ## purpose of this code
