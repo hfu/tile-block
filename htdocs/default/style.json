@@ -1,5 +1,7 @@
 {
   "version": 8,
+  "center": [31.5962, 4.8688],
+  "zoom": 15,
   "sources": {
     "unbase": {
       "type": "vector",
