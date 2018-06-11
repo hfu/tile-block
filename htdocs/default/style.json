@@ -4,7 +4,7 @@
     "unbase": {
       "type": "vector",
       "tiles": [
-        "https://localhost:3776/default/{z}/{x}/{y}"
+        "https://localhost:3776/zxy/default/{z}/{x}/{y}"
       ],
       "attribution": "please update the attribution.",
       "minzoom": 5,
