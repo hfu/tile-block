@@ -9,7 +9,7 @@
       "attribution": "please update the attribution.",
       "minzoom": 5,
       "maxzoom": 16
-    },
+    }
   },
   "glyphs": "https://hfu.github.io/openmaptiles-fonts/{fontstack}/{range}.pbf",
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
