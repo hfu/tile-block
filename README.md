@@ -2,7 +2,7 @@
 a simplest-possible mbtiles-based http/2 vector tile server
 
 ## how to use
-```sh
+```console
 $ git clone git@github.com:hfu/tile-block.git
 $ cd tile-block
 $ openssl genrsa -des3 -passout pass:tile-block -out private.key 2048
@@ -17,6 +17,12 @@ $ vi htdocs/somewhere/index.html
 $ vi htdocs/somewhere/style.json
 $ node tile-block
 $ open https://localhost:3776/somewhere/
+```
+
+You can change the port number by editing config/default.hjson. Yet you can also change the port number by the command line parameter. That will override the config settiong.
+
+```console
+$ node tile-block 9999 # this will run the server at port 9999 regardless the config.
 ```
 
 ## purpose of this code
