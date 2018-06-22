@@ -9,6 +9,12 @@ const app = express()
 app.use(cors())
 let mbtiles = {}
 
+/* get the port: override by command line parameter */
+let port = config.get('port')
+if (process.argv.length === 3) {
+  port = parseInt(process.argv[2])
+}
+
 const scanFiles = () => {
   fs.readdir('mbtiles', (err, files) => {
     if (err) throw err
@@ -75,11 +81,11 @@ const getTile = (t, z, x, y) => {
 app.use(express.static('htdocs'))
 
 /* be sure to change style.json if you want to use http
-app.listen(config.get('port'), () => {})
+app.listen(port, () => {})
 */
 
 spdy.createServer({
   key: fs.readFileSync('private.key'), 
   cert: fs.readFileSync('server.crt'),
   passphrase: 'tile-block'
-}, app).listen(config.get('port'), () => { })
+}, app).listen(port, () => { })

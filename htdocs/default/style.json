@@ -1,0 +1,69 @@
+{
+  "version": 8,
+  "center": [31.5962, 4.8688],
+  "zoom": 15,
+  "sources": {
+    "unbase": {
+      "type": "vector",
+      "tiles": [
+        "https://localhost:3776/zxy/default/{z}/{x}/{y}"
+      ],
+      "attribution": "please update the attribution.",
+      "minzoom": 5,
+      "maxzoom": 16
+    }
+  },
+  "glyphs": "https://hfu.github.io/openmaptiles-fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "layout": {},
+      "paint": {
+        "background-color": "#000"
+      }
+    },
+    {
+      "id": "polygon",
+      "type": "fill",
+      "source": "unbase",
+      "source-layer": "polygon",
+      "layout": {},
+      "paint": {
+        "fill-color": "#fff",
+        "fill-outline-color": "#fff",
+        "fill-opacity": 0.1
+      }
+    },
+    {
+      "id": "linestring",
+      "type": "line",
+      "source": "unbase",
+      "source-layer": "linestring",
+      "layout": {},
+      "paint": {
+        "line-color": "#9e9e9e",
+        "line-width": {
+          "base": 0.5,
+          "stops": [ [ 12, 1 ], [ 22, 4 ] ]
+        }
+      }
+    },
+    {
+      "id": "point",
+      "type": "symbol",
+      "source": "unbase",
+      "source-layer": "point",
+      "layout": {
+        "text-field": "{text}",
+        "text-font": [
+          "Metropolis Light"
+        ]
+      },
+      "paint": {
+        "text-color": "#e0e0e0"
+      }
+    }
+  ]
+}
