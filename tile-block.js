@@ -22,6 +22,7 @@ const scanFiles = () => {
       if (file.endsWith('.mbtiles')) {
         const t = file.replace('.mbtiles', '')
         if (mbtiles[t]) continue
+        // console.log(`opening ${t}`)
         new MBTiles(`mbtiles/${file}?mode=ro`, (err, mbt) => {
           if (err) throw err
           mbtiles[t] = mbt
@@ -50,6 +51,24 @@ app.get('/zxy/:t/:z/:x/:y', (req, res, next) => {
 app.get('/module/:z/:x/:y', (req, res, next) => {
   const [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
   const Z = 5
+  const X = x >> (z - Z)
+  const Y = y >> (z - Z)
+  const t = `${Z}-${X}-${Y}`
+  getTile(t, z, x, y).then(tile => {
+    if (tile) {
+      res.set('Content-Encoding', 'gzip')
+      res.send(tile)
+    } else {
+      res.status(404).send(`${t}/${z}/${x}/${y} does not exist.`)
+    }
+  }).catch(reason => {
+    throw reason
+  })
+})
+
+app.get('/module8/:z/:x/:y', (req, res, next) => {
+  const [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
+  const Z = 8
   const X = x >> (z - Z)
   const Y = y >> (z - Z)
   const t = `${Z}-${X}-${Y}`
