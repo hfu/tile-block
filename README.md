@@ -39,5 +39,15 @@ $ node tile-block 9999 # this will run the server at port 9999 regardless the co
 6. Static files under htdocs directory are served under /. The intent of this is to serve index.html, style.json and other related files so that we will not face CORS issues.
 7. For everything including bugs, please refer to tile-block.js.
 
+## working with Let's Encrypt
+You can work with the certificate from Let's Encrypt like the following.
+```javascript
+spdy.createServer({
+  key: fs.readFileSync('/etc/letsencrypt/live/vectortiles.xyz/privkey.pem'), 
+  cert: fs.readFileSync('/etc/letsencrypt/live/vectortiles.xyz/fullchain.pem'),
+  ca: fs.readFileSync('/etc/letsencrypt/live/vectortiles.xyz/chain.pem')
+}, app).listen(port, () => { })
+```
+
 ## CONTRIBUTE.md things
 forks, issues, pull requests are welcome!
