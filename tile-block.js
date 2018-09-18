@@ -66,9 +66,9 @@ app.get('/module/:z/:x/:y', (req, res, next) => {
   })
 })
 
-app.get('/module8/:z/:x/:y', (req, res, next) => {
+app.get('/module6/:z/:x/:y', (req, res, next) => {
   const [z, x, y] = [req.params.z, req.params.x, req.params.y].map(v => Number(v))
-  const Z = 8
+  const Z = 6 
   const X = x >> (z - Z)
   const Y = y >> (z - Z)
   const t = `${Z}-${X}-${Y}`
@@ -104,7 +104,10 @@ app.listen(port, () => {})
 */
 
 spdy.createServer({
-  key: fs.readFileSync('private.key'), 
-  cert: fs.readFileSync('server.crt'),
-  passphrase: 'tile-block'
+  key: fs.readFileSync('privkey.pem'),
+  cert: fs.readFileSync('fullchain.pem'),
+  ca: fs.readFileSync('chain.pem')
+  // key: fs.readFileSync('private.key'), 
+  // cert: fs.readFileSync('server.crt'),
+  // passphrase: 'tile-block'
 }, app).listen(port, () => { })
