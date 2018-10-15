@@ -2,11 +2,14 @@
 htdocs
 private.key
 public.key
+*.pem
+getkye.sh
 server.csr
 server.crt
 serve.stdout
 serve.stderr
 nohup.out
+package-lock.json
 
 # Logs
 logs
